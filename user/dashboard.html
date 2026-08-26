@@ -175,7 +175,7 @@ button,input{font:inherit}.hidden{display:none!important}.green{color:var(--gree
 const sb=(window.aiProcessor&&typeof window.aiProcessor.sb==='function')?window.aiProcessor.sb():null;
 let user=null,userRow=null,investments=[],selectedId=null,filterMode='running',profitMode='today',reloadTimer=null;
 const $=id=>document.getElementById(id); const money=n=>Math.round(Number(n||0)).toLocaleString('ko-KR')+' 원';
-function codeLabel(c){const n=String(userRow?.name||user?.name||userRow?.username||user?.username||'회원').trim();return 'AI 프로세스 '+(n.endsWith('님')?n:n+'님');}
+function codeLabel(c){return 'AI 프로세스 진행 현황';}
 function statusClass(s){return s==='진행중'?'run':s==='대기중'?'wait':'done'};
 function fmtDate(v){if(!v)return '-';const d=new Date(v);if(Number.isNaN(d.getTime()))return '-';return `${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`}
 function durationText(i){if(i.is_indefinite)return '기간 미정';const m=Number(i.duration_minutes||0);if(m%1440===0)return `${m/1440}일 0시간`;if(m%60===0)return `${m/60}시간 0분`;return `${Math.floor(m/60)}시간 ${m%60}분`}
